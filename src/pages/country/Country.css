@@ -1,0 +1,12 @@
+.countryTable {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  border: black 1px solid;
+}
+.countryTable h4{
+    color: grey;
+}
+.countryTable h5{
+    color: purple;
+}

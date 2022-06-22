@@ -1,0 +1,21 @@
+.homeTable{
+    border: 5px blue solid;
+    background:blue;
+    margin: auto;
+    width: 70vw;
+    height: 40vh;
+}
+.homeTable td{
+    border: 5px blue solid;
+    background:#fff;
+border-radius: 20px;
+font-weight: 600;
+font-family: Arial, Helvetica, sans-serif;
+}
+div{
+    text-align: center;
+}
+.most{
+    display: flex;
+    flex-wrap: wrap;
+}
