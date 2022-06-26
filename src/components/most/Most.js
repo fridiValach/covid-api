@@ -38,7 +38,7 @@ const Most = ({ data, time ,countries}) => {
       </h3>
       <ol>
         
-       {loop()}
+       {/*loop()*/}
       </ol>
     </div>
   );
