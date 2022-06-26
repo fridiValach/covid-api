@@ -6,3 +6,10 @@ h3{
     justify-content: space-between;
     padding: 2% 30%;
 }
+.display{
+    max-height: 50vh;
+    overflow: scroll;
+    width: 20%;
+    margin: auto;
+    border: black 1px solid;
+}

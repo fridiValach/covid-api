@@ -4,19 +4,25 @@ import "./NavBar.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const NavBar = ({ countries }) => {
+  function clickFunc(name) {
+    navigate("../" + name /*, {state:{country}}*/);
+    setValue(name);
+    setIsClick(false);
+  }
+
   //const date= new Date();
   //date= date.split(" ")[1]+"/"+date.split(" ")[2]+"/"+date.split(" ")[3]
   const navigate = useNavigate();
   console.log(countries);
-  const [mapArr, setMapArr] = useState(countries);
+  const [mapArr, setMapArr] = useState("");
 
   const [isClick, setIsClick] = useState(false);
   const [value, setValue] = useState("");
-  console.log(mapArr);
-
+  console.log(mapArr, "mapArr");
+  let array = mapArr === "" ? countries : mapArr;
   useEffect(() => {
     const newCountries = countries.filter((el) =>
-      el.name.toLowerCase().includes(value)
+      el.name.toLowerCase().includes(value.toLowerCase())
     );
     setMapArr(newCountries);
 
@@ -24,12 +30,9 @@ const NavBar = ({ countries }) => {
     console.log(value);
     console.log(countries);
   }, [value]);
-  //{navigate("../country")}
-  useEffect(() => {}, [isClick]);
-  //{navigate("../country")}
+
   return (
     <div>
-      <div className="navBar">
       <p>
         <Link to={"/"}>home</Link>
       </p>
@@ -39,7 +42,7 @@ const NavBar = ({ countries }) => {
           console.log(isClick);
         }}
       >
-        {isClick && mapArr.length>0 && (
+        {isClick && (
           <button
             onClick={() => {
               setIsClick(false);
@@ -55,16 +58,33 @@ const NavBar = ({ countries }) => {
           onChange={(e) => {
             setValue(e.target.value);
           }}
+          onKeyDown={(e) => {
+            console.log(e.key);
+            if (e.key === "Enter") {
+              const newCountries = countries.filter((el) =>
+                el.name.toLowerCase().includes(value.toLowerCase())
+              );
+              console.log(newCountries);
+              if (newCountries.length > 0) {
+                console.log("enter");
+                clickFunc(newCountries[0].name);
+              }
+            }
+            else if(e.key === "ArrowDown"){}
+            else if(e.key === "ArrowUp"){}
+          }}
         ></input>
 
         {isClick && (
           <div className={`${isClick ? "display" : "hide"}`}>
-            {mapArr.map((country, i) => (
+            {array.map((country, i) => (
               <Select
-                country={country}
+                clickFunc={clickFunc}
                 i={i}
+                name={country.name}
                 setValue={setValue}
                 setIsClick={setIsClick}
+                code={country.code}
                 key={country.code}
               />
             ))}
@@ -75,8 +95,6 @@ const NavBar = ({ countries }) => {
       <p>
         <Link to={"/about"}>about</Link>
       </p>
-      </div>
-    
       <h3>COVID 19 CORONAVIRUS TRACKER</h3>
       <h4>Correct data for today</h4>
     </div>
