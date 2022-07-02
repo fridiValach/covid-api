@@ -13,13 +13,10 @@ const NavBar = ({ countries }) => {
   //const date= new Date();
   //date= date.split(" ")[1]+"/"+date.split(" ")[2]+"/"+date.split(" ")[3]
   const navigate = useNavigate();
-  console.log(countries);
-  const [mapArr, setMapArr] = useState("");
-
+  const [mapArr, setMapArr] = useState(countries);
   const [isClick, setIsClick] = useState(false);
   const [value, setValue] = useState("");
   console.log(mapArr, "mapArr");
-  let array = mapArr === "" ? countries : mapArr;
   useEffect(() => {
     const newCountries = countries.filter((el) =>
       el.name.toLowerCase().includes(value.toLowerCase())
@@ -29,7 +26,9 @@ const NavBar = ({ countries }) => {
     console.log(newCountries);
     console.log(value);
     console.log(countries);
+
   }, [value]);
+  const array = mapArr 
 
   return (
     <div>
@@ -60,15 +59,17 @@ const NavBar = ({ countries }) => {
           }}
           onKeyDown={(e) => {
             console.log(e.key);
-            if (e.key === "Enter") {
+            if (e.key === "Enter") {/*
               const newCountries = countries.filter((el) =>
-                el.name.toLowerCase().includes(value.toLowerCase())
+                el.name.toLowerCase()===(value.toLowerCase())
               );
               console.log(newCountries);
               if (newCountries.length > 0) {
                 console.log("enter");
                 clickFunc(newCountries[0].name);
-              }
+              }*/
+              clickFunc(value);
+
             }
             else if(e.key === "ArrowDown"){}
             else if(e.key === "ArrowUp"){}

@@ -3,16 +3,16 @@ import './Country.css'
 import { useLocation, useParams } from 'react-router-dom';
 const Country = ({ numberWithCommas, countries, i}) => {
 //const country=countries[i]
-const countryName=useParams().country;
+let countryName=useParams().country;
 
-const country=countries.filter((el)=>el.name===countryName)[0]
+const country=countries.filter((el)=>el.name.toLowerCase()===countryName.toLowerCase())[0]
 console.log(country);
-console.log(countryName);
+const name=!country?"Not available country":country.name
 //const {code}=country
 //const {country}=location.state
   return (
     <div>
-      <h3>{countryName}</h3>
+      <h3>{name}</h3>
       <hr/>
       <table className='countryTable'>
         <tbody>

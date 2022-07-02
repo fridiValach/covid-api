@@ -4,7 +4,6 @@ import './Home.css'
 import Most from '../../components/most/Most';
 
 const Home = ({numberWithCommas, countries}) => {
-  console.log(countries);
   const [today, setToday]=useState({})
   const data=["deaths", "confirmed"]
   const time=["today","all time"]
@@ -12,9 +11,10 @@ const Home = ({numberWithCommas, countries}) => {
     async function fetchData(){
       const URL="https://corona-api.com/timeline"
       const {data}=await axios.get(URL)
-      const today=data.data[0]
+      console.log(data);
+      const todays=data.data[0]
       console.log(data.data[0]);
-      setToday(today)
+      setToday(todays)
     }
     fetchData()
   },[])
@@ -36,7 +36,7 @@ const Home = ({numberWithCommas, countries}) => {
     </table>
     <div className='most'>
       {data.map((dataEl, dataI)=>
-        time.map((timeEl, timeI)=><Most data={dataEl} time={timeEl} countries={countries} key={dataI+timeI}/>)
+        time.map((timeEl, timeI)=><Most data={dataEl} time={timeEl} countries={countries} key={dataI+timeI} numberWithCommas={numberWithCommas}/>)
       )}
     
 
