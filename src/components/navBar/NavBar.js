@@ -40,6 +40,7 @@ const NavBar = ({ countries }) => {
           setIsClick(true);
           console.log(isClick);
         }}
+       
       >
         {isClick && (
           <button
@@ -51,6 +52,7 @@ const NavBar = ({ countries }) => {
           </button>
         )}
         <input
+        
           type="text"
           placeholder="country"
           value={value}
