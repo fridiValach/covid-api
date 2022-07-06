@@ -9,13 +9,10 @@ import React, { useState, useEffect, useRef } from "react";
 
 function App() {
   function numberWithCommas(x) {
-    return (x?.toString())?.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      ","
-    );
+    return x?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   const [countriesData, setCountriesData] = useState([]);
-  
+
   useEffect(() => {
     async function fetchData() {
       const URL = "https://corona-api.com/countries";
@@ -29,14 +26,29 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar countries={countriesData}/>
+        <NavBar countries={countriesData} />
         <Routes>
-          <Route path="/" element={<Home numberWithCommas={numberWithCommas} countries={countriesData}/>} />
+          <Route
+            path="/"
+            element={
+              <Home
+                numberWithCommas={numberWithCommas}
+                countries={countriesData}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
-          <Route path="/:country" element={<Country  numberWithCommas={numberWithCommas} countries={countriesData}/>}  />
+          <Route
+            path="/:country"
+            element={
+              <Country
+                numberWithCommas={numberWithCommas}
+                countries={countriesData}
+              />
+            }
+          />
         </Routes>
       </Router>
-      
     </div>
   );
 }

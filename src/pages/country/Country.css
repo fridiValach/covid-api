@@ -3,6 +3,7 @@
   margin: auto;
   text-align: left;
   border: black 1px solid;
+  padding-left: 20%;
 }
 .countryTable h4{
     color: grey;

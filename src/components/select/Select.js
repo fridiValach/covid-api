@@ -1,17 +1,17 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Select = ({name, setIsClick,setValue, clickFunc}) => {
-  const navigate=useNavigate()
- //function clickFunc(){navigate("../"+name/*, {state:{country}}*/);setValue(name); setIsClick(false)}
+const Select = ({ name, setIsClick, setValue, clickFunc }) => {
+  const navigate = useNavigate();
   return (
-    <div onClick={()=>{clickFunc(name)}}
+    <div
+      onClick={() => {
+        clickFunc(name);
+      }}
     >
-       {name}
-    
-    
+      {name}
     </div>
-  )
-}
+  );
+};
 
-export default Select
+export default Select;

@@ -3,4 +3,9 @@
     border: 3px black solid;
     width: 35%;
     margin: 30px auto;
+    padding-bottom: 5%;
 }
+.over{
+    background-color: purple;
+}
+.no{background-color: white;}

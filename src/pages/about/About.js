@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div>
+    <div className="about">
       <h2>About</h2>
       <p>
         We give you accurate and up-to-date information about corona morbidity,
