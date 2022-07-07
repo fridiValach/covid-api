@@ -65,7 +65,8 @@ const NavBar = ({ countries }) => {
           onKeyDown={(e) => {
             console.log(e.key);
             if (e.key === "Enter") {
-              clickFunc(value);
+              if (mapArr.length===1){
+              clickFunc(mapArr[0])}
             } else if (e.key === "ArrowDown") {
             } else if (e.key === "ArrowUp") {
             }
