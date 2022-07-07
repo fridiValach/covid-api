@@ -30,6 +30,7 @@ const NavBar = ({ countries }) => {
 
   return (
     <div>
+      <h3 className="covidTitle">COVID 19 CORONAVIRUS TRACKER</h3>
     <div className="link">
       <p>
         <Link to={"/"} style={{ "text-decoration": "none" }}>
@@ -94,7 +95,6 @@ const NavBar = ({ countries }) => {
         </Link>
       </p>
       </div>
-      <h3 className="covidTitle">COVID 19 CORONAVIRUS TRACKER</h3>
       <h4>Correct data for: {a}</h4>
     </div>
   );
