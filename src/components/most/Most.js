@@ -43,7 +43,6 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
       <h3>
         Most {data} - {time}
       </h3>
-      {/* בתחילה הכנסתי כאן רשימה של שמות המדינות והנתונים שלהן, אך כיון שבהמשך יצרתי זאת בתוך הפאי- היה נראה לי שזו כפילות. האם אני צודקת?
       <ol>
         {mostCountries.length===5&&
         mostCountries.map((el) => (
@@ -65,7 +64,7 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
             {el.name} - {numberWithCommas(el[data])}
           </li>
         ))}
-          </ol>*/}
+          </ol>
       <Pie
         number={numbers}
         names={names}
