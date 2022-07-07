@@ -6,8 +6,7 @@ import Pie from "../pie/Pie";
 
 const Most = ({ data, time, countries, numberWithCommas }) => {
   const navigate = useNavigate();
-
-  console.log(countries);
+  const [display, setDisplay]=useState(false)
   const [mostCountries, setMostCountries] = useState(countries);
   function sortByKey(array, key) {
     return array.sort(function (a, b) {
@@ -43,6 +42,21 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
       <h3>
         Most {data} - {time}
       </h3>
+  <button
+onClick={() => {
+              ;
+            }}
+>
+    {display?"Show link to country" :"Show pie"
+setDisplay(!display)
+    </button>
+{display?
+  <Pie
+        number={numbers}
+        names={names}
+        numberWithCommas={numberWithCommas}
+      />
+          :
       <ol>
         {mostCountries.length===5&&
         mostCountries.map((el) => (
@@ -64,12 +78,8 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
             {el.name} - {numberWithCommas(el[data])}
           </li>
         ))}
-          </ol>
-      <Pie
-        number={numbers}
-        names={names}
-        numberWithCommas={numberWithCommas}
-      />
+          </ol>}
+      
     </div>
   );
 };
