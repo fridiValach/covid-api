@@ -44,11 +44,11 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
       </h3>
   <button
 onClick={() => {
-              ;
+  setDisplay(!display)
+  
             }}
 >
     {display?"Show link to country" :"Show pie"}
-setDisplay(!display)
     </button>
 {display?
   <Pie
@@ -71,9 +71,7 @@ setDisplay(!display)
             onMouseLeave={(e) => {
               e.target.className = "";
             }}
-            onMouseDown={() => {
-              clickFunc(el.name);
-            }}
+        
           >
             {el.name} - {numberWithCommas(el[data])}
           </li>

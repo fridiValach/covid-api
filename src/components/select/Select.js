@@ -8,6 +8,12 @@ const Select = ({ name, setIsClick, setValue, clickFunc }) => {
       onClick={() => {
         clickFunc(name);
       }}
+      onMouseOver={(e) => {
+        e.target.className = "over";
+      }}
+      onMouseLeave={(e) => {
+        e.target.className = "";
+      }}
     >
       {name}
     </div>
