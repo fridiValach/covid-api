@@ -42,7 +42,7 @@ const NavBar = ({ countries }) => {
       <div
         onFocus={() => {
           setIsClick(true);
-          isSet 1 && setMapArr([...countries]);
+          isSet && setMapArr([...countries]);
            mapArr.length < 1&& setIsSet(true)
 
           console.log(isClick);
