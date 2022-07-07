@@ -19,7 +19,7 @@ const NavBar = ({ countries }) => {
   console.log(mapArr, "mapArr");
   useEffect(() => {
     const newCountries = countries.filter((el) =>
-      el.name.toLowerCase().includes(value.toLowerCase())
+      el.name.toLowerCase().includes(value?.toLowerCase())
     );
     setMapArr(newCountries);
 
