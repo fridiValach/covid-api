@@ -43,10 +43,7 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
         Most {data} - {time}
       </h3>
   <button
-onClick={() => {
-  setDisplay(!display)
-  
-            }}
+
 >
     {display?"Show link to country" :"Show pie"}
     </button>
