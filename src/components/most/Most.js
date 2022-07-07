@@ -43,37 +43,39 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
         Most {data} - {time}
       </h3>
   <button
-
->
+    onClick={() => {
+      setDisplay(!display)
+       }}
+  >
     {display?"Show link to country" :"Show pie"}
-    </button>
-{display?
-  <Pie
-        number={numbers}
-        names={names}
-        numberWithCommas={numberWithCommas}
-      />
-          :
-      <ol>
-        {mostCountries.length===5&&
-        mostCountries.map((el) => (
-          <li
-            key={el.code}
-            onClick={() => {
-              clickFunc(el.name);
-            }}
-            onMouseOver={(e) => {
-              e.target.className = "over";
-            }}
-            onMouseLeave={(e) => {
-              e.target.className = "";
-            }}
-        
-          >
-            {el.name} - {numberWithCommas(el[data])}
-          </li>
-        ))}
-          </ol>}
+  </button>
+  {display?
+    <Pie
+          number={numbers}
+          names={names}
+          numberWithCommas={numberWithCommas}
+        />
+            :
+        <ol>
+          {mostCountries.length===5&&
+          mostCountries.map((el) => (
+            <li
+              key={el.code}
+              onClick={() => {
+                clickFunc(el.name);
+              }}
+              onMouseOver={(e) => {
+                e.target.className = "over";
+              }}
+              onMouseLeave={(e) => {
+                e.target.className = "";
+              }}
+          
+            >
+              {el.name} - {numberWithCommas(el[data])}
+            </li>
+          ))}
+            </ol>}
       
     </div>
   );
