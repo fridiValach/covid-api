@@ -47,7 +47,7 @@ onClick={() => {
               ;
             }}
 >
-    {display?"Show link to country" :"Show pie"
+    {display?"Show link to country" :"Show pie"}
 setDisplay(!display)
     </button>
 {display?
