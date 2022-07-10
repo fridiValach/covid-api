@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Country.css";
-import "../Country.css";
+import CountryData ;
 import { useLocation, useParams } from "react-router-dom";
 const Country = ({ numberWithCommas, countries, i }) => {
   let countryName = useParams().country;
