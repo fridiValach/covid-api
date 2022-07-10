@@ -36,7 +36,7 @@ const Country = ({ numberWithCommas, countries, i }) => {
     {keys.map((key, i)=><CountryData key={i} dataName={key} number={numberWithCommas(values[i])} />)
         
 
-     {*/  <table className="countryTable">
+     {/*  <table className="countryTable">
         <tbody>
           <tr>
             <td>
