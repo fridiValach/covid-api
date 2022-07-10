@@ -27,7 +27,7 @@ const NavBar = ({ countries }) => {
       el.name.toLowerCase().includes(value?.toLowerCase())
     );
     setMapArr(newCountries);
-    if (mapArr.length < 1){setIsSet(true)}
+    //if (mapArr.length < 1){setIsSet(true)}
 
     console.log(newCountries);
     console.log(value);
