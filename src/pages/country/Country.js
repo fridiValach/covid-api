@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Country.css";
+import "../Country.css";
 import { useLocation, useParams } from "react-router-dom";
 const Country = ({ numberWithCommas, countries, i }) => {
   let countryName = useParams().country;
@@ -12,6 +13,8 @@ const Country = ({ numberWithCommas, countries, i }) => {
   //console.log(code);
   const name = !country ? "Not available country" : country.name;
   //const {code}=country
+  const keys=["ACTIVE", "TODAY","CASES","DEATHS","RECOVERED","CRITICAL"]
+  const values=[country?.latest_data.confirmed,country?.today.confirmed,country?.latest_data.recovered + country?.latest_data.confirmed,country?.latest_data.deaths,country?.latest_data.recovered,country?.latest_data.critical]
   const [countryData, setCountryData] = useState({});
   useEffect(() => {
     async function fetchData() {
@@ -28,9 +31,12 @@ const Country = ({ numberWithCommas, countries, i }) => {
   }, []);
   return (
     <div>
-      <h3>Displays data from {name}</h3>
+    <h3>Displays data from {name}</h3>
       <hr />
-      <table className="countryTable">
+    {keys.map((key, i)=><CountryData key={i} dataName={key} number={numberWithCommas(values[i])} />)
+        
+
+     {*/  <table className="countryTable">
         <tbody>
           <tr>
             <td>
@@ -70,7 +76,7 @@ const Country = ({ numberWithCommas, countries, i }) => {
             </td>
           </tr>
         </tbody>
-      </table>
+      </table>*/}
     </div>
   );
 };
