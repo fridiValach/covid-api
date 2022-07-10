@@ -15,9 +15,13 @@ const NavBar = ({ countries }) => {
   const navigate = useNavigate();
   const [mapArr, setMapArr] = useState(countries);
   const [isClick, setIsClick] = useState(false);
-  const [isSet, setIsSet] = useState(false);
+  //const [isSet, setIsSet] = useState(false);
   const [value, setValue] = useState("");
   console.log(mapArr, "mapArr");
+   useEffect(() => {
+   setMapArr(countries)
+     }, [countries]);
+  
   useEffect(() => {
     const newCountries = countries.filter((el) =>
       el.name.toLowerCase().includes(value?.toLowerCase())
@@ -29,6 +33,7 @@ const NavBar = ({ countries }) => {
     console.log(value);
     console.log(countries);
   }, [value]);
+
 
   return (
     <div>
@@ -42,8 +47,8 @@ const NavBar = ({ countries }) => {
       <div
         onFocus={() => {
           setIsClick(true);
-          isSet && setMapArr([...countries]);
-           mapArr.length < 1&& setIsSet(true)
+          //isSet && setMapArr([...countries]);
+          // mapArr.length < 1&& setIsSet(true)
 
           console.log(isClick);
         }}
