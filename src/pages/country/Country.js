@@ -17,6 +17,11 @@ const Country = ({ numberWithCommas, countries, i }) => {
   //const {code}=country
   
   const [countryData, setCountryData] = useState({});
+    useEffect(() => {
+      setCountry(countries.filter(
+    (el) => el.name.toLowerCase() === countryName.toLowerCase()
+  )[0])
+  }, [countries]);
   useEffect(() => {
     async function fetchData() {
       const URL = "https://corona-api.com/countries" + country.code; //רציתי לבצע פניית API מדוייקת על המדינה, אך הראקט בשום אופן לא מזהה את הקוד מדינה, למרות שבתוך הJSX הוא כן מזהה אותו... מה יכולה להיות הסיבה?
@@ -30,11 +35,7 @@ const Country = ({ numberWithCommas, countries, i }) => {
       console.log(e.message);
     }
   }, []);
-    useEffect(() => {
-      setCountry(countries.filter(
-    (el) => el.name.toLowerCase() === countryName.toLowerCase()
-  )[0])
-  }, [countries]);
+  
  
 const keys=["ACTIVE", "TODAY","CASES","DEATHS","RECOVERED","CRITICAL"]
   const values=[country?.latest_data.confirmed,country?.today.confirmed,country?.latest_data.recovered + country?.latest_data.confirmed,country?.latest_data.deaths,country?.latest_data.recovered,country?.latest_data.critical]
