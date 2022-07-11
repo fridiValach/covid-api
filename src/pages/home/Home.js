@@ -3,7 +3,8 @@ import axios from "axios";
 import "./Home.css";
 import Most from "../../components/most/Most";
 
-const Home = ({ numberWithCommas, countries }) => {
+const Home = ({ numberWithCommas, countries, setIsClick }) => {
+  // setIsClick(false)
   const [today, setToday] = useState({});
   const data = ["deaths", "confirmed"];
   const time = ["today", "all time"];
@@ -11,9 +12,7 @@ const Home = ({ numberWithCommas, countries }) => {
     async function fetchData() {
       const URL = "https://corona-api.com/timeline";
       const { data } = await axios.get(URL);
-      console.log(data);
       const todays = data.data[0];
-      console.log(data.data[0]);
       setToday(todays);
     }
     fetchData();
