@@ -6,7 +6,7 @@ import Pie from "../pie/Pie";
 
 const Most = ({ data, time, countries, numberWithCommas }) => {
   const navigate = useNavigate();
-  const [display, setDisplay]=useState(false)
+  const [display, setDisplay] = useState(false);
   const [mostCountries, setMostCountries] = useState(countries);
   function sortByKey(array, key) {
     return array.sort(function (a, b) {
@@ -29,9 +29,7 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
       let sorted = sortByKey(filtered, data);
       sorted = sorted.reverse().slice(0, 5);
       setMostCountries(sorted);
-      console.log(filtered, "filtered");
-      console.log(sorted, "sorted");
-      console.log(mostCountries, "mostCountries");
+
       setMostCountries(sorted);
     }
   }, [countries]);
@@ -42,41 +40,40 @@ const Most = ({ data, time, countries, numberWithCommas }) => {
       <h3>
         Most {data} - {time}
       </h3>
-  <button
-    onClick={() => {
-      setDisplay(!display)
-       }}
-  >
-    {display?"Show link to country" :"Show pie"}
-  </button>
-  {display?
-    <Pie
+      <button
+        onClick={() => {
+          setDisplay(!display);
+        }}
+      >
+        {display ? "Show link to country" : "Show pie"}
+      </button>
+      {display ? (
+        <Pie
           number={numbers}
           names={names}
           numberWithCommas={numberWithCommas}
         />
-            :
+      ) : (
         <ol>
-          {mostCountries.length===5&&
-          mostCountries.map((el) => (
-            <li
-              key={el.code}
-              onClick={() => {
-                clickFunc(el.name);
-              }}
-              onMouseOver={(e) => {
-                e.target.className = "over";
-              }}
-              onMouseLeave={(e) => {
-                e.target.className = "";
-              }}
-          
-            >
-              {el.name} - {numberWithCommas(el[data])}
-            </li>
-          ))}
-            </ol>}
-      
+          {mostCountries.length === 5 &&
+            mostCountries.map((el) => (
+              <li
+                key={el.code}
+                onClick={() => {
+                  clickFunc(el.name);
+                }}
+                onMouseOver={(e) => {
+                  e.target.className = "over";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.className = "";
+                }}
+              >
+                {el.name} - {numberWithCommas(el[data])}
+              </li>
+            ))}
+        </ol>
+      )}
     </div>
   );
 };
