@@ -12,12 +12,12 @@ function App() {
     return x?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   const [countriesData, setCountriesData] = useState([]);
+  const [isClick, setIsClick] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const URL = "https://corona-api.com/countries";
       const { data } = await axios.get(URL);
-      console.log(data);
       setCountriesData(data.data);
     }
     fetchData();
@@ -26,7 +26,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar countries={countriesData} />
+        <NavBar
+          countries={countriesData}
+          setIsClick={setIsClick}
+          isClick={isClick}
+        />
         <Routes>
           <Route
             path="/"
@@ -34,16 +38,18 @@ function App() {
               <Home
                 numberWithCommas={numberWithCommas}
                 countries={countriesData}
+                setIsClick={setIsClick}
               />
             }
           />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About setIsClick={setIsClick} />} />
           <Route
             path="/:country"
             element={
               <Country
                 numberWithCommas={numberWithCommas}
                 countries={countriesData}
+                setIsClick={setIsClick}
               />
             }
           />
