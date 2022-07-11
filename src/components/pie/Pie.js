@@ -4,7 +4,9 @@ import { Pie, Bar } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart = ({ number, names, numberWithCommas }) => {
-  const titles = names.map((el, i) => i+1 +". "+el + " - " + numberWithCommas(number[i]));
+  const titles = names.map(
+    (el, i) => i + 1 + ". " + el + " - " + numberWithCommas(number[i])
+  );
 
   const pieData = {
     labels: titles,
