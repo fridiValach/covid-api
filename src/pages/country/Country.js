@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Country.css";
 import CountryData from "../../components/CountryData";
+import Pie from "../../components/pie/Pie";
+
 import { useLocation, useParams } from "react-router-dom";
 const Country = ({ numberWithCommas, countries, i }) => {
   let countryName = useParams().country;
 
-  const country = countries.filter(
-    (el) => el.name.toLowerCase() === countryName.toLowerCase()
-  )[0];
+  const [country, setCountry] =useState({})
+  
+  ;
   //const {code}=country;
   //console.log(code);
   const name = !country ? "Not available country" : country.name;
@@ -29,6 +31,14 @@ const Country = ({ numberWithCommas, countries, i }) => {
       console.log(e.message);
     }
   }, []);
+    useEffect(() => {
+      setCountry(countries.filter(
+    (el) => el.name.toLowerCase() === countryName.toLowerCase()
+  )[0])
+  }, [countries]);
+  const {code, popolution}=country;
+  values.forEach(el=>{popolution-=el})
+
   return (
     <div>
     <h3>Displays data from {name}</h3>
@@ -39,7 +49,12 @@ const Country = ({ numberWithCommas, countries, i }) => {
         
     </div>
 
-    
+     <Pie
+          number={[...values, popolution]}
+          names={keys}
+          numberWithCommas={numberWithCommas}
+        />
+      
     </div>
   );
 };
