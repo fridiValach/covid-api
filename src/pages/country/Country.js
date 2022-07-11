@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Country.css";
-import CountryData from "../../components/countryData/CountryData";
+import CountryData from "../../components/CountryData";
 import Pie from "../../components/pie/Pie";
 import { useLocation, useParams } from "react-router-dom";
 const Country = ({ numberWithCommas, countries, i, setIsClick }) => {
