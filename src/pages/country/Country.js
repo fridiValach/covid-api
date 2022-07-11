@@ -49,11 +49,11 @@ const Country = ({ numberWithCommas, countries, i }) => {
         
     </div>
 
-     <Pie
+{/* <Pie
           number={[...values, popolution]}
           names={keys}
           numberWithCommas={numberWithCommas}
-        />
+        />*/}
       
     </div>
   );
