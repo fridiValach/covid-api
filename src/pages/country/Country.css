@@ -1,13 +1,18 @@
-.countryTable {
+.country {
   width: 80%;
   margin: auto;
   text-align: left;
   border: black 1px solid;
   padding-left: 20%;
+  display:flex;
+  flex-wra:wrap;
 }
-.countryTable h4{
+.country div {
+  width: 40%;
+}
+.country h4{
     color: grey;
 }
-.countryTable h5{
+.country h5{
     color: purple;
 }
