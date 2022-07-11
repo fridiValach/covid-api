@@ -33,7 +33,7 @@ const Country = ({ numberWithCommas, countries, i }) => {
     <div>
     <h3>Displays data from {name}</h3>
       <hr />
-        <div classname="country">
+        <div className="country">
 
     {keys.map((key, i)=><CountryData key={i} dataName={key} number={numberWithCommas(values[i])} />)}
         
