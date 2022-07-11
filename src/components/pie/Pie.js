@@ -26,7 +26,7 @@ const PieChart = ({ number, names, numberWithCommas }) => {
           "rgb(225, 99, 251)",
           "rgb(225, 99, 101)",
         ],
-        borderColor: ["grey"],
+        border: ["grey", "0.01px", "solid"],
       },
     ],
   };
