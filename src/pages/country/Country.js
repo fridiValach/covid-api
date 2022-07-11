@@ -35,10 +35,11 @@ const Country = ({ numberWithCommas, countries, i }) => {
     (el) => el.name.toLowerCase() === countryName.toLowerCase()
   )[0])
   }, [countries]);
-  const {code, popolution}=country;
-  values.forEach(el=>{popolution-=el})
+ 
 const keys=["ACTIVE", "TODAY","CASES","DEATHS","RECOVERED","CRITICAL"]
   const values=[country?.latest_data.confirmed,country?.today.confirmed,country?.latest_data.recovered + country?.latest_data.confirmed,country?.latest_data.deaths,country?.latest_data.recovered,country?.latest_data.critical]
+   const {code, popolution}=country;
+  values.forEach(el=>{popolution-=el})
   return (
     <div>
     <h3>Displays data from {name}</h3>
