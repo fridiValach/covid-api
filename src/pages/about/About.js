@@ -1,6 +1,6 @@
 import React from "react";
 
-const About = () => {
+const About = ({setIsClick}) => {
   return (
     <div className="about">
       <h2>About</h2>
