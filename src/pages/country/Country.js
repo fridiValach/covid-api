@@ -60,7 +60,7 @@ const Country = ({ numberWithCommas, countries, i, setIsClick }) => {
       <div className="country">
         {keys.map((key, i) => (
           <CountryData
-            key={i}
+            key={key}
             dataName={key}
             number={numberWithCommas(values[i])}
           />
