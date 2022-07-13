@@ -48,21 +48,18 @@ const Country = ({ numberWithCommas, countries, i, setIsClick }) => {
       console.log(e.message);
     }
   }, []);
-  useEffect(() => {
-    const keys = Object.keys(dataObj);
-    setNames(keys);
-  }, [dataObj]);
+
 
   return (
     <div>
       <h3>Displays data from {name}</h3>
       <hr />
       <div className="country">
-        {keys.map((key, i) => (
+        {Object.keys(dataObj).map((key, i) => (
           <CountryData
             key={key}
             dataName={key}
-            number={numberWithCommas(values[i])}
+            number={numberWithCommas(dataObj[key])}
           />
         ))}
         <h3>
